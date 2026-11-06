@@ -1,160 +1,18 @@
-Ximport React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  TouchableOpacity,
-  StatusBar,
-  ScrollView,
-} from 'react-native';
 
-export default function App() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" />
-      <ScrollView>
-        <View style={styles.header}>
-          <Text style={styles.logo}>ZIDANE</Text>
-          <Text style={styles.gold}>WALLET</Text>
-          <Text style={styles.demo}>DEMO MODE</Text>
-        </View>
-
-        <View style={styles.card}>
-          <Text style={styles.label}>TOTAL BALANCE</Text>
-          <Text style={styles.balance}>0.08431 BTC</Text>
-          <Text style={styles.usd}>≈ $5,659.73 USD</Text>
-          <Text style={styles.sample}>FICTIONAL SAMPLE BALANCE</Text>
-        </View>
-
-        <View style={styles.actions}>
-          {['Receive', 'Send', 'Activity'].map((item) => (
-            <TouchableOpacity key={item} style={styles.button}>
-              <Text style={styles.buttonText}>{item}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-
-        <Text style={styles.section}>WALLET OVERVIEW</Text>
-        <View style={styles.info}>
-          <Text style={styles.infoTitle}>Bitcoin</Text>
-          <Text style={styles.infoValue}>0.08431 BTC</Text>
-          <Text style={styles.muted}>Demo asset · Not real funds</Text>
-        </View>
-
-        <View style={styles.security}>
-          <Text style={styles.gold}>SECURITY NOTICE</Text>
-          <Text style={styles.notice}>
-            This is a demonstration only.
-            No private keys, no blockchain,
-            and no real Bitcoin transfers.
-          </Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+{
+  "name": "zidane-wallet",
+  "version": "1.0.0",
+  "private": true,
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "expo": "~54.0.0",
+    "expo-status-bar": "~3.0.8",
+    "react": "19.1.0",
+    "react-native": "0.81.4"
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#080808',
-  },
-  header: {
-    padding: 25,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  logo: {
-    color: '#FFFFFF',
-    fontSize: 25,
-    fontWeight: 'bold',
-  },
-  gold: {
-    color: '#D4AF37',
-    fontWeight: 'bold',
-    marginLeft: 5,
-  },
-  demo: {
-    color: '#D4AF37',
-    marginLeft: 'auto',
-    fontSize: 10,
-  },
-  card: {
-    backgroundColor: '#171717',
-    margin: 20,
-    padding: 25,
-    borderRadius: 18,
-    borderWidth: 1,
-    borderColor: '#8B7028',
-  },
-  label: {
-    color: '#AAAAAA',
-    fontSize: 12,
-  },
-  balance: {
-    color: '#FFFFFF',
-    fontSize: 30,
-    fontWeight: 'bold',
-    marginTop: 15,
-  },
-  usd: {
-    color: '#D4AF37',
-    marginTop: 8,
-    fontSize: 18,
-  },
-  sample: {
-    color: '#888888',
-    marginTop: 20,
-    fontSize: 10,
-  },
-  actions: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    margin: 15,
-  },
-  button: {
-    backgroundColor: '#D4AF37',
-    padding: 15,
-    borderRadius: 10,
-  },
-  buttonText: {
-    color: '#080808',
-    fontWeight: 'bold',
-  },
-  section: {
-    color: '#D4AF37',
-    margin: 20,
-    fontWeight: 'bold',
-  },
-  info: {
-    backgroundColor: '#171717',
-    padding: 20,
-    marginHorizontal: 20,
-    borderRadius: 12,
-  },
-  infoTitle: {
-    color: 'white',
-    fontSize: 18,
-  },
-  infoValue: {
-    color: '#D4AF37',
-    marginTop: 10,
-  },
-  muted: {
-    color: '#888888',
-    marginTop: 8,
-  },
-  security: {
-    margin: 20,
-    padding: 20,
-    borderWidth: 1,
-    borderColor: '#55451D',
-    borderRadius: 12,
-  },
-  notice: {
-    color: '#BBBBBB',
-    marginTop: 12,
-    lineHeight: 22,
-  },
-});
