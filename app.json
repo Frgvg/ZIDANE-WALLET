@@ -10,6 +10,11 @@
     },
     "android": {
       "package": "com.revocryp.zidanewallet"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c5346844-6746-449c-98eb-12b32bdf846b"
+      }
     }
   }
 }
