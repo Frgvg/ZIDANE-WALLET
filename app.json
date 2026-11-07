@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "Zidane Wallet",
+    "slug": "revocrypto",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "bundleIdentifier": "com.revocryp.zidanewallet"
+    },
+    "android": {
+      "package": "com.revocryp.zidanewallet"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c5346844-6746-449c-98eb-12b32bdf846b"
+      }
+    }
+  }
+}
