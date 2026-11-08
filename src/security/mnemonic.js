@@ -1,5 +1,5 @@
 import { validateMnemonic as validateBip39 } from '@scure/bip39';
-import { wordlist } from '@scure/bip39/wordlists/english.js';
+import { wordlist } from '@scure/bip39/wordlists/english';
 
 // Validate an English BIP39 recovery phrase.
 export function validateRecoveryPhrase(mnemonic) {
