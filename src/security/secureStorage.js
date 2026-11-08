@@ -1,7 +1,5 @@
 import * as SecureStore from 'expo-secure-store';
-
-const MNEMONIC_KEY = 'zidane_wallet_mnemonic_v1';
-
+import { validateRecoveryPhrase } from './mnemonic';
 // Save the recovery phrase securely on this device.
 export async function saveMnemonic(mnemonic) {
   if (typeof mnemonic !== 'string' || !mnemonic.trim()) {
