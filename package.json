@@ -7,7 +7,7 @@
     "start": "expo start",
     "android": "expo start --android",
     "web": "expo start --web",
-    "test": "vitest run"
+    "test": "vitest run --config ./vitest.config.js"
   },
   "dependencies": {
     "@scure/bip39": "1.6.0",
