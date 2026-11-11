@@ -1,0 +1,53 @@
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex b7fb64c..95afec4 100644[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -1,35 +1,16 @@[m
+[31m-# Gradle files[m
+[31m-.gradle/[m
+[31m-build/[m
+[31m-.kotlin/[m
+[31m-[m
+[31m-# Local configuration file (sdk path, etc)[m
+[31m-local.properties[m
+[31m-[m
+[31m-# Log/OS Files[m
+[31m-*.log[m
+[31m-[m
+[31m-# Android Studio generated files and folders[m
+[31m-captures/[m
+[31m-.externalNativeBuild/[m
+[31m-.cxx/[m
+[31m-*.aab[m
+[31m-*.apk[m
+[31m-output-metadata.json[m
+[31m-[m
+[31m-# IntelliJ[m
+[31m-*.iml[m
+[31m-.idea/[m
+[31m-misc.xml[m
+[31m-deploymentTargetDropDown.xml[m
+[31m-render.experimental.xml[m
+[31m-[m
+[31m-# Keystore files[m
+[31m-*.jks[m
+[31m-*.keystore[m
+[31m-[m
+[31m-# Google Services (e.g. APIs or Firebase)[m
+[31m-google-services.json[m
+[32m+[m[32m# Dependencies[m
+[32m+[m[32mnode_modules/[m
+ [m
+ # Android Profiling[m
+ *.hprof[m
+[32m+[m
+[32m+[m[32m# Environment files[m
+[32m+[m[32m.env[m
+[32m+[m[32m.env.*[m
+[32m+[m
+[32m+[m[32m# Expo[m
+[32m+[m[32m.expo/[m
+[32m+[m[32mdist/[m
+[32m+[m[32mweb-build/[m
+[32m+[m[32m!.env.example[m
+[32m+[m[32m!.env.example[m

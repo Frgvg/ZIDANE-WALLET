@@ -10,7 +10,7 @@ const BG = '#080A0D';
 const CARD = '#151920';
 
 export default function App() {
-  const [page, setPage] = useState('Home');
+  const [page, setPage] = useState('Setup');
   const [balance, setBalance] = useState(0.08431);
   const [amount, setAmount] = useState('');
   const [hidden, setHidden] = useState(false);
@@ -26,7 +26,7 @@ export default function App() {
     const value = Number(amount);
 
     if (!/^\d+(\.\d{1,8})?$/.test(amount.trim()) ||
-        !Number.isFinite(value) || value <= 0) {
+      !Number.isFinite(value) || value <= 0) {
       Alert.alert('Invalid amount', 'Enter a valid BTC amount.');
       return;
     }
@@ -62,7 +62,7 @@ export default function App() {
   const Header = () => (
     <View style={s.header}>
       <View>
-        <Text style={s.brand}>ZIDANE<Text style={{color:GOLD}}> WALLET</Text></Text>
+        <Text style={s.brand}>ZIDANE<Text style={{ color: GOLD }}> WALLET</Text></Text>
         <Text style={s.tagline}>YOUR DIGITAL PRACTICE SPACE</Text>
       </View>
       <View style={s.demoBadge}>
@@ -76,7 +76,7 @@ export default function App() {
       style={[s.button, secondary && s.secondaryButton]}
       onPress={onPress}
     >
-      <Text style={[s.buttonText, secondary && {color:GOLD}]}>
+      <Text style={[s.buttonText, secondary && { color: GOLD }]}>
         {title}
       </Text>
     </TouchableOpacity>
@@ -85,17 +85,17 @@ export default function App() {
   const Transaction = ({ item }) => (
     <View style={s.transaction}>
       <View style={s.transactionIcon}>
-        <Text style={{color:GOLD,fontSize:20}}>
+        <Text style={{ color: GOLD, fontSize: 20 }}>
           {item.amount > 0 ? '↓' : '↑'}
         </Text>
       </View>
-      <View style={{flex:1}}>
+      <View style={{ flex: 1 }}>
         <Text style={s.transactionName}>{item.name}</Text>
         <Text style={s.muted}>{item.date}</Text>
       </View>
       <Text style={{
-        color:item.amount > 0 ? '#69D69A' : GOLD,
-        fontWeight:'bold'
+        color: item.amount > 0 ? '#69D69A' : GOLD,
+        fontWeight: 'bold'
       }}>
         {item.amount > 0 ? '+' : ''}{item.amount.toFixed(8)}
       </Text>
@@ -146,7 +146,7 @@ export default function App() {
           <Text style={s.gold}>VIEW ALL →</Text>
         </TouchableOpacity>
       </View>
-      {history.slice(0,3).map((item,i) =>
+      {history.slice(0, 3).map((item, i) =>
         <Transaction key={i} item={item} />
       )}
     </>
@@ -195,7 +195,7 @@ export default function App() {
     <>
       <Text style={s.heading}>Activity</Text>
       <Text style={s.muted}>Your sample transaction history</Text>
-      {history.map((item,i) =>
+      {history.map((item, i) =>
         <Transaction key={i} item={item} />
       )}
       <Text style={s.warning}>All records are fictional demo activity.</Text>
@@ -213,7 +213,7 @@ export default function App() {
           'No blockchain connection',
           'No real Bitcoin transfers',
           'No real funds held'
-        ].map((item,i) => (
+        ].map((item, i) => (
           <View style={s.securityRow} key={i}>
             <Text style={s.check}>✓</Text>
             <Text style={s.securityText}>{item}</Text>
@@ -230,15 +230,15 @@ export default function App() {
           'Reset demo?',
           'Restore the original sample balance and activity?',
           [
-            {text:'Cancel',style:'cancel'},
+            { text: 'Cancel', style: 'cancel' },
             {
-              text:'Reset',
-              onPress:() => {
+              text: 'Reset',
+              onPress: () => {
                 setBalance(0.08431);
                 setHistory([
-                  {name:'Demo deposit',amount:0.025,date:'Sample activity'},
-                  {name:'Coffee & company',amount:-0.0018,date:'Sample activity'},
-                  {name:'Demo deposit',amount:0.06111,date:'Sample activity'}
+                  { name: 'Demo deposit', amount: 0.025, date: 'Sample activity' },
+                  { name: 'Coffee & company', amount: -0.0018, date: 'Sample activity' },
+                  { name: 'Demo deposit', amount: 0.06111, date: 'Sample activity' }
                 ]);
                 setPage('Home');
               }
@@ -259,26 +259,26 @@ export default function App() {
 
   return (
     <SafeAreaView style={s.container}>
-      <StatusBar barStyle="light-content" backgroundColor={BG}/>
+      <StatusBar barStyle="light-content" backgroundColor={BG} />
       <Header />
       <ScrollView contentContainerStyle={s.content}>
         {pages[page]}
       </ScrollView>
       <View style={s.navigation}>
         {[
-          ['Home','⌂'],
-          ['Receive','↓'],
-          ['Send','↑'],
-          ['Activity','↗'],
-          ['Security','◇']
-        ].map(([name,icon]) => (
+          ['Home', '⌂'],
+          ['Receive', '↓'],
+          ['Send', '↑'],
+          ['Activity', '↗'],
+          ['Security', '◇']
+        ].map(([name, icon]) => (
           <TouchableOpacity
             key={name}
             style={s.navItem}
             onPress={() => setPage(name)}
           >
-            <Text style={[s.navIcon,page===name && s.active]}>{icon}</Text>
-            <Text style={[s.navText,page===name && s.active]}>{name}</Text>
+            <Text style={[s.navIcon, page === name && s.active]}>{icon}</Text>
+            <Text style={[s.navText, page === name && s.active]}>{name}</Text>
           </TouchableOpacity>
         ))}
       </View>
@@ -287,75 +287,75 @@ export default function App() {
 }
 
 const s = StyleSheet.create({
-  container:{flex:1,backgroundColor:BG},
-  header:{
-    padding:20,flexDirection:'row',justifyContent:'space-between',
-    alignItems:'center',borderBottomWidth:1,borderColor:'#242932'
+  container: { flex: 1, backgroundColor: BG },
+  header: {
+    padding: 20, flexDirection: 'row', justifyContent: 'space-between',
+    alignItems: 'center', borderBottomWidth: 1, borderColor: '#242932'
   },
-  brand:{color:'#FFF',fontSize:19,fontWeight:'900',letterSpacing:1},
-  tagline:{color:'#858B94',fontSize:8,letterSpacing:2,marginTop:5},
-  demoBadge:{borderWidth:1,borderColor:'#76602F',padding:8,borderRadius:20},
-  demoText:{color:GOLD,fontSize:10,fontWeight:'bold'},
-  content:{padding:20,paddingBottom:35},
-  welcome:{marginTop:10,marginBottom:20},
-  heading:{color:'#FFF',fontSize:29,fontWeight:'bold',marginTop:12,marginBottom:10},
-  muted:{color:'#969DA8',fontSize:12,lineHeight:19,marginTop:5},
-  gold:{color:GOLD,fontSize:11,fontWeight:'bold'},
-  balanceCard:{
-    backgroundColor:'#19170F',borderWidth:1,borderColor:'#786132',
-    borderRadius:18,padding:22,marginBottom:28
+  brand: { color: '#FFF', fontSize: 19, fontWeight: '900', letterSpacing: 1 },
+  tagline: { color: '#858B94', fontSize: 8, letterSpacing: 2, marginTop: 5 },
+  demoBadge: { borderWidth: 1, borderColor: '#76602F', padding: 8, borderRadius: 20 },
+  demoText: { color: GOLD, fontSize: 10, fontWeight: 'bold' },
+  content: { padding: 20, paddingBottom: 35 },
+  welcome: { marginTop: 10, marginBottom: 20 },
+  heading: { color: '#FFF', fontSize: 29, fontWeight: 'bold', marginTop: 12, marginBottom: 10 },
+  muted: { color: '#969DA8', fontSize: 12, lineHeight: 19, marginTop: 5 },
+  gold: { color: GOLD, fontSize: 11, fontWeight: 'bold' },
+  balanceCard: {
+    backgroundColor: '#19170F', borderWidth: 1, borderColor: '#786132',
+    borderRadius: 18, padding: 22, marginBottom: 28
   },
-  cardTop:{flexDirection:'row',justifyContent:'space-between'},
-  cardLabel:{color:'#B6B1A5',fontSize:10,letterSpacing:1},
-  balance:{color:'#FFF',fontSize:27,fontWeight:'bold',marginTop:22},
-  cardFoot:{color:'#A39B88',fontSize:11,marginTop:10},
-  cardLine:{height:1,backgroundColor:'#51452D',marginTop:20},
-  sectionTitle:{color:'#FFF',fontSize:17,fontWeight:'bold',marginBottom:15},
-  actionRow:{flexDirection:'row',gap:10,marginBottom:30},
-  action:{
-    flex:1,backgroundColor:CARD,borderRadius:14,padding:17,
-    alignItems:'center',borderWidth:1,borderColor:'#29303A'
+  cardTop: { flexDirection: 'row', justifyContent: 'space-between' },
+  cardLabel: { color: '#B6B1A5', fontSize: 10, letterSpacing: 1 },
+  balance: { color: '#FFF', fontSize: 27, fontWeight: 'bold', marginTop: 22 },
+  cardFoot: { color: '#A39B88', fontSize: 11, marginTop: 10 },
+  cardLine: { height: 1, backgroundColor: '#51452D', marginTop: 20 },
+  sectionTitle: { color: '#FFF', fontSize: 17, fontWeight: 'bold', marginBottom: 15 },
+  actionRow: { flexDirection: 'row', gap: 10, marginBottom: 30 },
+  action: {
+    flex: 1, backgroundColor: CARD, borderRadius: 14, padding: 17,
+    alignItems: 'center', borderWidth: 1, borderColor: '#29303A'
   },
-  actionIcon:{color:GOLD,fontSize:25},
-  actionText:{color:'#FFF',fontSize:11,marginTop:8},
-  sectionHeader:{flexDirection:'row',justifyContent:'space-between',alignItems:'center'},
-  transaction:{
-    flexDirection:'row',alignItems:'center',gap:12,
-    paddingVertical:16,borderBottomWidth:1,borderColor:'#252B34'
+  actionIcon: { color: GOLD, fontSize: 25 },
+  actionText: { color: '#FFF', fontSize: 11, marginTop: 8 },
+  sectionHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  transaction: {
+    flexDirection: 'row', alignItems: 'center', gap: 12,
+    paddingVertical: 16, borderBottomWidth: 1, borderColor: '#252B34'
   },
-  transactionIcon:{
-    width:38,height:38,borderRadius:12,backgroundColor:'#222019',
-    alignItems:'center',justifyContent:'center'
+  transactionIcon: {
+    width: 38, height: 38, borderRadius: 12, backgroundColor: '#222019',
+    alignItems: 'center', justifyContent: 'center'
   },
-  transactionName:{color:'#FFF',fontWeight:'bold',fontSize:13},
-  panel:{
-    backgroundColor:CARD,borderRadius:16,padding:20,
-    borderWidth:1,borderColor:'#303743',marginTop:22
+  transactionName: { color: '#FFF', fontWeight: 'bold', fontSize: 13 },
+  panel: {
+    backgroundColor: CARD, borderRadius: 16, padding: 20,
+    borderWidth: 1, borderColor: '#303743', marginTop: 22
   },
-  receiveCode:{color:'#FFF',fontSize:19,fontWeight:'bold',marginVertical:24,textAlign:'center'},
-  warning:{color:GOLD,fontSize:12,lineHeight:20,marginTop:20},
-  balanceSmall:{color:'#FFF',fontSize:22,fontWeight:'bold',marginTop:12},
-  fieldLabel:{color:GOLD,fontSize:11,marginTop:25,marginBottom:9},
-  input:{
-    backgroundColor:BG,color:'#FFF',padding:16,borderRadius:10,
-    borderWidth:1,borderColor:'#3B424D',fontSize:18
+  receiveCode: { color: '#FFF', fontSize: 19, fontWeight: 'bold', marginVertical: 24, textAlign: 'center' },
+  warning: { color: GOLD, fontSize: 12, lineHeight: 20, marginTop: 20 },
+  balanceSmall: { color: '#FFF', fontSize: 22, fontWeight: 'bold', marginTop: 12 },
+  fieldLabel: { color: GOLD, fontSize: 11, marginTop: 25, marginBottom: 9 },
+  input: {
+    backgroundColor: BG, color: '#FFF', padding: 16, borderRadius: 10,
+    borderWidth: 1, borderColor: '#3B424D', fontSize: 18
   },
-  button:{
-    backgroundColor:GOLD,padding:17,borderRadius:10,
-    alignItems:'center',marginTop:20
+  button: {
+    backgroundColor: GOLD, padding: 17, borderRadius: 10,
+    alignItems: 'center', marginTop: 20
   },
-  secondaryButton:{backgroundColor:'transparent',borderWidth:1,borderColor:GOLD},
-  buttonText:{color:BG,fontWeight:'bold',fontSize:12},
-  securityRow:{flexDirection:'row',alignItems:'center',marginTop:20},
-  check:{color:'#69D69A',fontSize:17,marginRight:12},
-  securityText:{color:'#FFF',fontSize:13},
-  navigation:{
-    flexDirection:'row',justifyContent:'space-around',
-    backgroundColor:'#13171D',paddingVertical:13,
-    borderTopWidth:1,borderColor:'#303743'
+  secondaryButton: { backgroundColor: 'transparent', borderWidth: 1, borderColor: GOLD },
+  buttonText: { color: BG, fontWeight: 'bold', fontSize: 12 },
+  securityRow: { flexDirection: 'row', alignItems: 'center', marginTop: 20 },
+  check: { color: '#69D69A', fontSize: 17, marginRight: 12 },
+  securityText: { color: '#FFF', fontSize: 13 },
+  navigation: {
+    flexDirection: 'row', justifyContent: 'space-around',
+    backgroundColor: '#13171D', paddingVertical: 13,
+    borderTopWidth: 1, borderColor: '#303743'
   },
-  navItem:{alignItems:'center',flex:1},
-  navIcon:{color:'#858B94',fontSize:20},
-  navText:{color:'#858B94',fontSize:9,marginTop:4},
-  active:{color:GOLD,fontWeight:'bold'}
+  navItem: { alignItems: 'center', flex: 1 },
+  navIcon: { color: '#858B94', fontSize: 20 },
+  navText: { color: '#858B94', fontSize: 9, marginTop: 4 },
+  active: { color: GOLD, fontWeight: 'bold' }
 });
