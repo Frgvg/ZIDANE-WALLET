@@ -10,7 +10,7 @@ const BG = '#080A0D';
 const CARD = '#151920';
 
 export default function App() {
-  const [page, setPage] = useState('Setup');
+  const [page, setPage] = useState('Home');
   const [balance, setBalance] = useState(0.08431);
   const [amount, setAmount] = useState('');
   const [hidden, setHidden] = useState(false);
